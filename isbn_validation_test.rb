@@ -23,8 +23,19 @@ class Random_pairs_test < Minitest::Test
 	end
 
 	def test_no_spaces_and_dashes
-		nothing = remove_spaces_and_dashes("1-2-3")
+		nothing = remove_spaces_and_dashes("1- 2- 3")
 		assert_equal("123", nothing)
 	end
 
+	def test_length
+		string = string_length("123456789")
+		assert_equal(false, string)
+	end
+
+	def test_length2
+		string = string_length("0123456789")
+		assert_equal(true, string)
+	end
+
+	
 end
