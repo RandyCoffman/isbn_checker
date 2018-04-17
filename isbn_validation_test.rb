@@ -37,5 +37,35 @@ class Random_pairs_test < Minitest::Test
 		assert_equal(true, string)
 	end
 
-	
+	def test_checker
+		checker = string_checker("1-2-3-4-5-6-7")
+		assert_equal(false, checker)
+	end
+
+	def test_checker2
+		checker = string_checker("98-7977-978-9")
+		assert_equal(true, checker)
+	end
+
+	def test_array
+		array = string_to_array("98-7977-978-9")
+		assert_equal(["9","8","7","9","7","7","9","7","8","9"], array)
+	end
+
+	def test_array2
+		array = string_to_array("1234567890")
+		assert_equal(["1","2","3","4","5","6","7","8","9","0"], array)
+	end
+
+
+	def test_isbn10_validation
+		array = validate_isbn10("98-7977-978-9")
+		assert_equal("X", array)
+	end
+
+	def test_isbn10_validation2
+		array = validate_isbn10("1234567891")
+		assert_equal("invalid", array)
+	end
+
 end
