@@ -1,7 +1,4 @@
-def remove_spaces(numbers)
-	numbers.gsub!(" ", "")
-end
-
-def remove_dashes(numbers)
-	numbers.gsub!("-", "")
+def remove_spaces_and_dashes(numbers)
+	numbers = numbers.gsub(" ", "")
+	numbers = numbers.gsub("-", "")
 end
