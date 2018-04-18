@@ -60,12 +60,32 @@ class Random_pairs_test < Minitest::Test
 
 	def test_isbn10_validation
 		array = validate_isbn10("98-7977-978-9")
-		assert_equal("X", array)
+		assert_equal("valid", array)
 	end
 
 	def test_isbn10_validation2
+		array = validate_isbn10("877195869x")
+		assert_equal("valid", array)
+	end
+
+	def test_isbn10_validation3
 		array = validate_isbn10("1234567891")
 		assert_equal("invalid", array)
+	end
+
+	def test_isbn13_validation
+		array = validate_isbn13("1234567891234")
+		assert_equal("invalid", array)
+	end
+
+	def test_isbn13_validation2
+		array = validate_isbn13("9780470059029")
+		assert_equal("valid", array)
+	end
+
+	def test_isbn13_validation3
+		array = validate_isbn13("978 0 471 48648 0")
+		assert_equal("valid", array)
 	end
 
 end
