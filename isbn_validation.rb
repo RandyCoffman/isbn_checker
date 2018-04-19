@@ -1,6 +1,5 @@
-def remove_spaces_and_dashes(numbers)
-	numbers = numbers.gsub(" ", "")
-	numbers = numbers.gsub("-", "")
+def remove_everything_but_digits_x_and_X(numbers)
+	numbers = numbers.gsub(/[^0-9^xX]/, "")
 end
 
 def string_length(numbers)
@@ -12,12 +11,12 @@ def string_length(numbers)
 end
 
 def string_checker(numbers)
-	numbers = remove_spaces_and_dashes(numbers)
+	numbers = remove_everything_but_digits_x_and_X(numbers)
 	string_length(numbers)
 end
 
 def string_to_array(numbers)
-	numbers = remove_spaces_and_dashes(numbers)
+	numbers = remove_everything_but_digits_x_and_X(numbers)
 	if string_length(numbers) == true
 		numbers.split("")
 	end
@@ -26,7 +25,6 @@ end
 def validate_isbn10(numbers)
 	check_digit = []
 	numbers = string_to_array(numbers)
-	if numbers.length == 10
 		check_digit.push(numbers.pop)
 		numbers.map! { |str| str.to_i }
 		numbers = numbers.each_with_index.map { |value,index| value * (index + 1) }
@@ -36,32 +34,41 @@ def validate_isbn10(numbers)
 		else 
 			"invalid"
 		end
-	end
 end
 
 def validate_isbn13(numbers)
 	check_digit = []
 	numbers = string_to_array(numbers)
-	if numbers.length == 13
-		numbers.map! { |str| str.to_i }
-		check_digit.push(numbers.pop)
-		numbers = numbers.each_with_index.map { |value,index|
-		if (index + 1).odd? 
-			value * 1
-		elsif (index + 1).even?
-			value * 3
-		end
-		}
-		numbers = numbers.inject(:+) # Adds the array of integers together
+	check_digit.push(numbers.pop)
+	numbers.map! { |str| str.to_i }
+	numbers = numbers.each_with_index.map { |value,index|
+	if (index + 1).odd? 
+		value * 1
+	elsif (index + 1).even?
+		value * 3
+	end
+	}
+	numbers = numbers.inject(:+) # Adds the array of integers together
+	numbers = numbers % 10
+	numbers = 10 - numbers
+	until numbers <= 9
 		numbers = numbers % 10
-		numbers = 10 - numbers
-		until numbers <= 9
-			numbers = numbers % 10
-		end
-		if check_digit[0] != numbers 
-			"invalid"
-		else
-			"valid"
-		end
+	end
+	if check_digit[0].to_i != numbers 
+		"invalid"
+	else
+		"valid"
+	end
+end
+
+
+def isbn10_or_isbn13(numbers)
+	numbers = remove_everything_but_digits_x_and_X(numbers)
+	if numbers.length == 10
+		validate_isbn10(numbers)
+	elsif numbers.length == 13
+		validate_isbn13(numbers)
+	else
+		"invalid"
 	end
 end
