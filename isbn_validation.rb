@@ -26,7 +26,13 @@ def validate_isbn10(numbers)
 	check_digit = []
 	numbers = string_to_array(numbers)
 		check_digit.push(numbers.pop)
-		numbers.map! { |str| str.to_i }
+		numbers.map! { |str| 
+			if str.downcase == "x"
+				str = 10
+			else
+				str.to_i 
+			end
+		}
 		numbers = numbers.each_with_index.map { |value,index| value * (index + 1) }
 		numbers = numbers.inject(:+) # Adds the array of integers together
 		if numbers % 11 == check_digit[0].to_i || check_digit[0].downcase == "x" && numbers % 11 == 10

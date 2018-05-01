@@ -83,6 +83,11 @@ class Random_pairs_test < Minitest::Test
 		assert_equal("invalid", array)
 	end
 
+	def test_isbn10_validation6
+		array = validate_isbn10("xx-xxxx-xxx-x")
+		assert_equal("valid", array)
+	end
+
 	def test_isbn13_validation
 		array = validate_isbn13("1234567891234")
 		assert_equal("invalid", array)
