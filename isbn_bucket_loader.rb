@@ -18,20 +18,3 @@ client = Aws::S3::Client.new(
       obj.put(body: file)
     end
 end
-
-
-def get_file()
-  s3 = Aws::S3::Client.new(
-    access_key_id: ENV['S3_KEY'],
-    secret_access_key: ENV['S3_SECRET'],
-    region: ENV['AWS_REGION'],
-  )
-  resp = s3.get_object(bucket:'isbn-validation', key:'results.csv')
-  isbn_array = []
-  isbn = resp.body.read
-  isbn = isbn.split().each do |element|
-    element.gsub!(/[^0-9a-zA-Z]/, "")
-    isbn_array << element
-  end
-isbn_array
-end
