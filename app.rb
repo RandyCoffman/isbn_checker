@@ -48,5 +48,5 @@ get "/finalize" do
 	connect
 	first_name = session[:first_name]
 	last_name = session[:last_name]
-	erb :page4_upload_csv, locals:{first_name:first_name, last_name:last_name}
+	erb :page4_display_your_results, locals:{first_name:first_name, last_name:last_name}
 end
