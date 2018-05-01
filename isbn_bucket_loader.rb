@@ -15,7 +15,6 @@ client = Aws::S3::Client.new(
   s3 = Aws::S3::Resource.new(client: client)
   obj = s3.bucket(bucket).object(file)
     File.open('results.csv', 'rb') do |file|
-      p file.to_a
       obj.put(body: file)
     end
 end
@@ -34,7 +33,5 @@ def get_file()
     element.gsub!(/[^0-9a-zA-Z]/, "")
     isbn_array << element
   end
-  CSV.open("results.csv", "w") do |csv| 
-    csv << isbn_array
-  end
+isbn_array
 end

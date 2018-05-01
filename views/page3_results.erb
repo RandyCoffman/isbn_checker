@@ -12,8 +12,6 @@
 
 	<div>New list</div>
 
-	
-
 	<% CSV.open("results.csv", "a+") do |csv| %>
 		<% new_list.each do |num| %>
 		  <% csv << [num] %>

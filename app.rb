@@ -46,5 +46,7 @@ end
 get "/finalize" do
 	connect = connect_to_s3
 	connect
-	erb :page4_upload_csv, locals:{connect:connect}
+	first_name = session[:first_name]
+	last_name = session[:last_name]
+	erb :page4_upload_csv, locals:{first_name:first_name, last_name:last_name}
 end

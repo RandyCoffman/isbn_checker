@@ -4,8 +4,21 @@
 	<title>final</title>
 </head>
 <body>
+	<h3>Here are all of your searched ISBN numbers.</h3>
 
-	<% connect %>
+	<% CSV.open('new_results.csv', 'w') do |csv| %>
+  		<% CSV.read('results.csv').uniq.each { |r| csv << r } %>
+	<% end %>
+
+
+	<% CSV.foreach("new_results.csv") do |row| %>
+		<div>
+			<% if row[0].include?("#{first_name} #{last_name}") == true %>
+					<%= row[0] %>
+			<% else %>
+  			<% end %>
+  		</div>
+	<% end %>
 
 </body>
 </html>
