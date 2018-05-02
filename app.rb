@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'csv'
-require 'rubygems'
 require 'aws-sdk'
 require_relative 'isbn_validation.rb'
 require_relative 'isbn_bucket_loader.rb'
