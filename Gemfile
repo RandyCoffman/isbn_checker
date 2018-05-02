@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
 
-require 'csv'
-require 'rubygems'
-require 'aws-sdk'
+gem 'sinatra'
+gem 'csv'
+gem 'aws-sdk'
