@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Welcome</title>
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	<meta name="google-signin-client_id" content="380424629633-6p8tmje54gmv3s1179opunm1b02isda9.apps.googleusercontent.com">
-	<script type="text/javascript" src="/public/google_login.js"></script>
-</head>
-<body>
-	<h1>Welcome to my ISBN checker!</h1>
-	<br><br>
-	<h3>Please enter your name below.</h3>
-
-        <div id="fb-root"></div>
-
-        <script>
+ <script>
         window.fbAsyncInit = function() {
                 FB.init({
                 appId: '2129492484004186',
@@ -52,26 +37,4 @@
         console.log(status);
 
         </script>
-
-        <button onclick="javascript:login();">Login Facebook</button>
-
-        <br>
-
-        <button onclick="javascript:logout();">Logout from Facebook</button>
-
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
-<div>
-	<a href="#" onclick="signOut();">Sign out</a>
-</div>
-	<form method="post" action="post-name"> 
-		<div>
-			<input type="text" name="first_name" placeholder="First Name">
-			<input type="text" name="last_name" placeholder="Last Name">
-		</div>
-		<div>
-			<input type="submit">
-		</div>
-	</form>
-
-</body>
-</html>
+  
