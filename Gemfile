@@ -1,3 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sinatra'
+require 'sinatra'
+require 'csv'
+require 'rubygems'
+require 'aws-sdk'
