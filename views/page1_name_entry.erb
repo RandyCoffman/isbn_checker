@@ -11,6 +11,9 @@
 	<br><br>
 	<h3>Please enter your name below.</h3>
 
+<h3>Facebook Login</h3>
+
+<!-- Must set up an app on facebook developer which contains info such as domain url, valid redirect url's, etc -->
 <script>
   window.fbAsyncInit = function() {
     FB.init({
@@ -19,7 +22,9 @@
       xfbml      : true,
       version    : 'v2.8'
     });
-
+	FB.getLoginStatus(function(response) {
+	    statusChangeCallback(response);
+	});
 	FB.api(
 '/{user-id}',
 'GET',
@@ -31,31 +36,49 @@ function(response) {
 }
 );
   };
-    (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "https://connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-
-
-
-  // Here we run a very simple test of the Graph API after login is
-  // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-		console.log(response.name());
-        console.log(response.name());
-        document.getElementById('first_name').value = first_name
-        document.getElementById('last_name').value = last_name
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+	 function statusChangeCallback(response) {
+		 console.log(response);
+		 if(response.status === 'connected') {
+			 console.log('Logged in and Authenticated');
+		 }else{
+			 console.log('Not Authenticated');
+		 }
+	 }
+		function checkLoginState() {
+		  FB.getLoginStatus(function(response) {
+		    statusChangeCallback(response);
+				FB.login(function(response) {
+				 if (response.authResponse)
+						window.top.location = "https://isbn-web.herokuapp.com/login";
+					});
+		  });
+		}
+		function testAPI() {
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('me?fields=id,name,first_name,last_name,email', function (response) {
+					console.log(response);
+          console.log('Successful login for: ' + response.name);
+					console.log(response.first_name + " " + response.last_name + " " + response.email);
+					window.location = "/facebook_success?f_name=" + response.first_name + '&l_name=' + response.last_name + '&email=' + response.email;
+          // document.getElementById('status').innerHTML =
+          //     'Thanks for logging in, ' + response.name + '!';
+          // alert(response.first_name);
+          // $('#fName').text(response.first_name);
+          // $('#lName').text(response.last_name);
       });
 		}
-
+		// Redirect if logged into facebook
+		// FB.login(function(response) {
+    //  if (response.authResponse) {
+    //     window.top.location = "https://isbn-web.herokuapp.com/login";
+		// 	});
 </script>
 
 
