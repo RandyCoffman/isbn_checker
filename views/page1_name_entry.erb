@@ -9,7 +9,7 @@
 <body>
 	<h1>Welcome to my ISBN checker!</h1>
 	<br><br>
-	<h3>Please enter your name below.</h3>
+	<h3>Please enter your name below or login with one of these services.</h3>
 
 <h3>Facebook Login</h3>
 
@@ -94,6 +94,8 @@ function(response) {
 	<!-- checkLoginState(); -->
 </fb:login-button><br>
 
+<h3>Google Login</h3><br>
+
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
 <script type="text/javascript">
     function onSignIn(googleUser) {
@@ -109,6 +111,7 @@ function(response) {
         document.getElementById('last_name').value = last_name
         }
 </script>
+<br>
 <div>
 	<button onclick="signOut();">Sign out</button>
 	<script type="text/javascript">
@@ -116,6 +119,7 @@ function(response) {
 	document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://scotts-isbn-validator.herokuapp.com";
 	}
 	</script>
+	<br>
 </div>
 	<form method="post" action="post-name"> 
 		<div>
