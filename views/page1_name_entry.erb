@@ -70,6 +70,8 @@
         var last_name = profile.getName().split(' ').slice(-1).join(' ');
         console.log(first_name);
         console.log(last_name);
+        document.getElementById('first_name').value = first_name
+        document.getElementById('last_name').value = last_name
         }
 </script>
 <div>
@@ -82,8 +84,8 @@
 </div>
 	<form method="post" action="post-name"> 
 		<div>
-			<input type="text" name="first_name" placeholder="First Name">
-			<input type="text" name="last_name" placeholder="Last Name">
+			<input type="text" name="first_name" placeholder="First Name" id="first_name" value="">
+			<input type="text" name="last_name" placeholder="Last Name" id="last_name" value="">
 		</div>
 		<div>
 			<input type="submit">
