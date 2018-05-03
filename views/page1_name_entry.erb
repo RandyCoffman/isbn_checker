@@ -42,14 +42,7 @@ function(response) {
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));
 
-	 function statusChangeCallback(response) {
-		 console.log(response);
-		 if(response.status === 'connected') {
-			 console.log('Logged in and Authenticated');
-		 }else{
-			 console.log('Not Authenticated');
-		 }
-	 }
+
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
@@ -57,9 +50,8 @@ function(response) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
-      console.log(response.name.name().split(' ').slice(0, -1).join(' '));
-      console.log(response.name().split(' ').slice(-1).join(' '););
-
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
 		var first_name = response.name().split(' ').slice(0, -1).join(' ');
         var last_name = response.name().split(' ').slice(-1).join(' ');
         document.getElementById('first_name').value = first_name
