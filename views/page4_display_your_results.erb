@@ -10,13 +10,13 @@
   		<% CSV.read('results.csv').uniq.each { |r| csv << r } %>
 	<% end %>
 
-	<% CSV.foreach("new_results.csv") do |row| %>
+	<% CSV.open("new_results.csv", 'rb') do |row| %>
 		<div>
 			<% if row[0].include?("#{first_name} #{last_name}") == true %>
 					<%= row[0] %>
   			<% end %>
   		</div>
 	<% end %>
-	<% connect2 %>
+	<%= connect2 %>
 </body>
 </html>
