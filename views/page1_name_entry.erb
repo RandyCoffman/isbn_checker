@@ -34,33 +34,22 @@ function(response) {
 }
 );
   };
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-	 function statusChangeCallback(response) {
-		 console.log(response);
-		 if(response.status === 'connected') {
-			 console.log('Logged in and Authenticated');
-		 }else{
-			 console.log('Not Authenticated');
-		 }
-	 }
-		function checkLoginState() {
-		  FB.getLoginStatus(function(response) {
-		    statusChangeCallback(response);
-				FB.login(function(response) {
-				 if (response.authResponse)
-						window.top.location = "https://scotts-isbn-validator.herokuapp.com/";
-					});
-		  });
-		}
-		function testAPI() {
-      FB.api('me?fields=id,name,first_name,last_name,email', function (response) {
-	
+    (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+  // Here we run a very simple test of the Graph API after login is
+  // successful.  See statusChangeCallback() for when this call is made.
+  function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
 		var first_name = response.name().split(' ').slice(0, -1).join(' ');
         var last_name = response.name().split(' ').slice(-1).join(' ');
         document.getElementById('first_name').value = first_name
