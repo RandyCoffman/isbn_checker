@@ -60,10 +60,22 @@
         <button onclick="javascript:logout();">Logout from Facebook</button>
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
-<script type="text/javascript" src="/public/google_login.js">
+<script type="text/javascript">
+    function onSignIn(googleUser) {
+       	var profile = googleUser.getBasicProfile();
+  		console.log('Name: ' + profile.getName());
+  		console.log('Image URL: ' + profile.getImageUrl());
+        console.log("Succesfully Singed in!!!");
+        }
 </script>
 <div>
-	<a href="https://scotts-isbn-validator.herokuapp.com" onclick="signOut();">Sign out</a>
+	<a href="#" onclick="signOut();">Sign out</a>
+	<script type="text/javascript">
+	function signOut() {
+	document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://scotts-isbn-validator.herokuapp.com";
+      console.log('User signed out.');
+	}
+	</script>
 </div>
 	<form method="post" action="post-name"> 
 		<div>
