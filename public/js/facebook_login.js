@@ -1,40 +1,40 @@
- <script>
-        window.fbAsyncInit = function() {
-                FB.init({
-                appId: '2129492484004186',
-                status: true,
-                cookie: true,
-                xfbml: true
-            });
-        };
+ // <script>
+ //        window.fbAsyncInit = function() {
+ //                FB.init({
+ //                appId: '244497702961539',
+ //                status: true,
+ //                cookie: true,
+ //                xfbml: true
+ //            });
+ //        };
 
-        // Load the SDK asynchronously
-        (function(d){
-        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement('script'); js.id = id; js.async = true;
-        js.src = "//connect.facebook.net/en_US/all.js";
-        ref.parentNode.insertBefore(js, ref);
-        }(document));
+ //        // Load the SDK asynchronously
+ //        (function(d){
+ //        var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+ //        if (d.getElementById(id)) {return;}
+ //        js = d.createElement('script'); js.id = id; js.async = true;
+ //        js.src = "//connect.facebook.net/en_US/all.js";
+ //        ref.parentNode.insertBefore(js, ref);
+ //        }(document));
 
-        function login() {
-            FB.login(function(response) {
+ //        function login() {
+ //            FB.login(function(response) {
 
-            // handle the response
-            console.log("Response goes here!");
+ //            // handle the response
+ //            console.log("Response goes here!");
 
-            }, {scope: 'read_stream,publish_stream,publish_actions,read_friendlists'});            
-        }
+ //            }, {scope: 'read_stream,publish_stream,publish_actions,read_friendlists'});            
+ //        }
 
-        function logout() {
-            FB.logout(function(response) {
-              // user is now logged out
-            });
-        }
+ //        function logout() {
+ //            FB.logout(function(response) {
+ //              // user is now logged out
+ //            });
+ //        }
 
-        var status = FB.getLoginStatus();
+ //        var status = FB.getLoginStatus();
 
-        console.log(status);
+ //        console.log(status);
 
-        </script>
-  
+ //        </script>
+ //  

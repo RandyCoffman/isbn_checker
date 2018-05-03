@@ -4,7 +4,7 @@
 	<title>Welcome</title>
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
 	<meta name="google-signin-client_id" content="380424629633-6p8tmje54gmv3s1179opunm1b02isda9.apps.googleusercontent.com">
-	<script type="text/javascript" src="/public/google_login.js"></script>
+	<!-- <script src="/public/google_login.js"></script> -->
 </head>
 <body>
 	<h1>Welcome to my ISBN checker!</h1>
@@ -59,7 +59,12 @@
 
         <button onclick="javascript:logout();">Logout from Facebook</button>
 
-<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<div class="g-signin2" data-onsuccess="onSignIn" onclick="onSignIn();"></div>
+<script type="text/javascript">
+        function onSignIn(googleUser) {
+                console.log("Succesfully Singed in!!!");
+        }
+</script>
 <div>
 	<a href="#" onclick="signOut();">Sign out</a>
 </div>
