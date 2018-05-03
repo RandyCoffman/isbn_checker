@@ -59,16 +59,8 @@
 
         <button onclick="javascript:logout();">Logout from Facebook</button>
 
-<div class="g-signin2" data-onsuccess="onSignIn" onclick="onSignIn();"></div>
-<script type="text/javascript">
-    function onSignIn(googleUser) {
-       	var profile = googleUser.getBasicProfile();
-  		console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  		console.log('Name: ' + profile.getName());
-  		console.log('Image URL: ' + profile.getImageUrl());
-  		console.log('Email: ' + profile.getEmail());
-        console.log("Succesfully Singed in!!!");
-        }
+<div class="g-signin2" data-onsuccess="onSignIn"></div>
+<script type="text/javascript" src="/public/google_login.js">
 </script>
 <div>
 	<a href="#" onclick="signOut();">Sign out</a>
