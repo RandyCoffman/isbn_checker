@@ -11,19 +11,14 @@
 	<br><br>
 	<h3>Please enter your name below.</h3>
 
-        <div id="fb-root"></div>
-
-        <script>
-        window.fbAsyncInit = function() {
-                FB.init({
-                appId: '2103993239838212',
-                status: true,
-                cookie: true,
-                xfbml: true,
-                version: 'v2.8'
-            });
-        };
-
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2103993239838212',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.8'
+    });
 
 	FB.getLoginStatus(function(response) {
 	    statusChangeCallback(response);
