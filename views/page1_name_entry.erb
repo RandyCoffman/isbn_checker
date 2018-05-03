@@ -54,29 +54,20 @@ function(response) {
 		    statusChangeCallback(response);
 				FB.login(function(response) {
 				 if (response.authResponse)
-						window.top.location = "https://isbn-web.herokuapp.com/login";
+						window.top.location = "https://scotts-isbn-validator.herokuapp.com/";
 					});
 		  });
 		}
 		function testAPI() {
-      console.log('Welcome!  Fetching your information.... ');
       FB.api('me?fields=id,name,first_name,last_name,email', function (response) {
-					console.log(response);
-          console.log('Successful login for: ' + response.name);
-					console.log(response.first_name + " " + response.last_name + " " + response.email);
-					window.location = "/facebook_success?f_name=" + response.first_name + '&l_name=' + response.last_name + '&email=' + response.email;
-          // document.getElementById('status').innerHTML =
-          //     'Thanks for logging in, ' + response.name + '!';
-          // alert(response.first_name);
-          // $('#fName').text(response.first_name);
-          // $('#lName').text(response.last_name);
+	
+		var first_name = response.name().split(' ').slice(0, -1).join(' ');
+        var last_name = response.name().split(' ').slice(-1).join(' ');
+        document.getElementById('first_name').value = first_name
+        document.getElementById('last_name').value = last_name
       });
 		}
-		// Redirect if logged into facebook
-		// FB.login(function(response) {
-    //  if (response.authResponse) {
-    //     window.top.location = "https://isbn-web.herokuapp.com/login";
-		// 	});
+
 </script>
 
 
