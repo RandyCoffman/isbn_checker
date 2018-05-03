@@ -52,8 +52,8 @@ function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
-		var first_name = response.name().split(' ').slice(0, -1).join(' ');
-        var last_name = response.name().split(' ').slice(-1).join(' ');
+		console.log(response.name().split(' ').slice(0, -1).join(' '));
+        console.log(response.name().split(' ').slice(-1).join(' '));
         document.getElementById('first_name').value = first_name
         document.getElementById('last_name').value = last_name
       });
