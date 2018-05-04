@@ -107,7 +107,6 @@ function(response) {
         var first_name = profile.getName().split(' ').slice(0, -1).join(' ');
         var last_name = profile.getName().split(' ').slice(-1).join(' ');
         document.getElementById('first_name').value = first_name
-        document.write("img src="profile.getImageUrl()">");
         document.getElementById("avatar").src = profile.getImageUrl();
         }
 </script>
