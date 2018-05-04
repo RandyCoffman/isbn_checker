@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+		<% CSV.foreach("new_results.csv") do |row| %>
+		<div class="valid">
+				<%= row[0] %>
+  			<% end %>
+  		</div>
+</body>
+</html>

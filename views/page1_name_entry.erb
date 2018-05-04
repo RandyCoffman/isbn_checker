@@ -11,7 +11,6 @@
 	<br><br>
 	<h3>Please enter your name below or login with one of these services.</h3>
 
-<h3>Facebook Login</h3>
 
 <!-- Must set up an app on facebook developer which contains info such as domain url, valid redirect url's, etc -->
 <script>
@@ -85,49 +84,55 @@ function(response) {
 		// 	});
 </script>
 
-
+<div>
+<span class="fb">
+	<h3>Facebook Login</h3>
 <fb:login-button
-	data-size="large"
+	data-size="medium"
 	data-button-type="continue_with"
   scope="public_profile,email"
   onlogin="testAPI();">
-	<!-- checkLoginState(); -->
-</fb:login-button><br>
-
-<h3>Google Login</h3><br>
-
+</fb:login-button>
+</span>
+<span class="google">
+<h3>Google Login</h3>
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</span>
+</div>
 <script type="text/javascript">
     function onSignIn(googleUser) {
        	var profile = googleUser.getBasicProfile();
   		console.log('Name: ' + profile.getName());
   		console.log('Image URL: ' + profile.getImageUrl());
-        console.log("Succesfully Singed in!!!");
         var first_name = profile.getName().split(' ').slice(0, -1).join(' ');
         var last_name = profile.getName().split(' ').slice(-1).join(' ');
-        console.log(first_name);
-        console.log(last_name);
         document.getElementById('first_name').value = first_name
-        document.getElementById('last_name').value = last_name
+        document.write("img src="profile.getImageUrl()">");
+        document.getElementById("avatar").src = profile.getImageUrl();
         }
 </script>
 <br>
+<br>
+<br>
 <div>
-	<button onclick="signOut();">Sign out</button>
+	<button class="btn" onclick="signOut();">Sign out</button>
 	<script type="text/javascript">
 	function signOut() {
 	document.location.href = "https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=https://scotts-isbn-validator.herokuapp.com";
 	}
 	</script>
 	<br>
+	<br>
 </div>
 	<form method="post" action="post-name"> 
 		<div>
 			<input type="text" name="first_name" placeholder="First Name" id="first_name" value="">
 			<input type="text" name="last_name" placeholder="Last Name" id="last_name" value="">
+			<img id="avatar"/>
 		</div>
+		<br>
 		<div>
-			<input type="submit">
+			<input class="btn" type="submit">
 		</div>
 	</form>
 

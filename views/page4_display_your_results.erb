@@ -13,12 +13,16 @@
 	<% connect2 %>
 
 	<% CSV.foreach("new_results.csv") do |row| %>
-		<div>
+		<div class="valid">
 			<% if row[0].include?("#{first_name} #{last_name}") == true %>
 					<%= row[0] %>
   			<% end %>
   		</div>
 	<% end %>
-
+	<br><br>
+	<p>Would you like to go back and enter another number?</p>
+	<button onclick="window.location.href='/input_isbn'">Input another number.</button>
+	<br><br>
+	<button onclick="window.location.href='/'">I want to go back.</button>
 </body>
 </html>

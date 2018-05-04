@@ -9,3 +9,7 @@
 ", invalid, Scott Coffman"
 "1234567812, invalid, Scott Coffman"
 "8888888888, valid, Scott Coffman"
+"0000000000, valid, Randy Coffman"
+"1234561234, invalid, Randy Coffman"
+"1234567891, invalid, Randy Coffman"
+"1234561231, invalid, Randy Coffman"

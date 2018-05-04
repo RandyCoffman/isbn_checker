@@ -1,0 +1,78 @@
+body {
+  background-image: url("/img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 3px auto 0;
+    position: relative;
+  text-align: center;
+  color: white;
+}
+
+div.g-signin2 {
+  width: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+span.fb {
+  float: left;
+}
+
+span.google {
+  float: center;
+}
+
+.valid {
+  font-size: 1.2rem;
+}
+
+.btn {
+  -webkit-border-radius: 12;
+  -moz-border-radius: 12;
+  border-radius: 12px;
+  font-family: Arial;
+  color: #000000;
+  font-size: .8rem;
+  background: #a8a8a8;
+  padding: 5px 10px 5px 10px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #a8a8a8;
+  background-image: -webkit-linear-gradient(top, #a8a8a8, #6598b8);
+  background-image: -moz-linear-gradient(top, #a8a8a8, #6598b8);
+  background-image: -ms-linear-gradient(top, #a8a8a8, #6598b8);
+  background-image: -o-linear-gradient(top, #a8a8a8, #6598b8);
+  background-image: linear-gradient(to bottom, #a8a8a8, #6598b8);
+  text-decoration: none;
+}
+
+.topnav {
+    background-color: #a8a8a8;
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #a8a8a8;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #a8a8a5;
+    color: black;
+}

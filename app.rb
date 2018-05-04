@@ -50,3 +50,21 @@ get "/finalize" do
 	last_name = session[:last_name]
 	erb :page4_display_your_results, locals:{first_name:first_name, last_name:last_name, connect2:connect2}
 end
+
+get "/about" do
+	erb :about
+end
+
+get "/contact" do
+	erb :contact
+end
+
+get "/news" do
+	erb :news
+end
+
+get "/list" do
+	connect = connect_to_s3
+	connect
+	erb :list
+end

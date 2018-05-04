@@ -4,23 +4,23 @@
 	<title>Results</title>
 </head>
 <body>
+	<br><br>
 
-	<div><%= numbers %> is <%= validation %></div>
+	<div class="valid"><%= numbers %> is <%= validation %></div>
 	<% new_list = [] %>
 
 	<% new_list << "#{numbers}, #{validation}, #{first_name} #{last_name}" %>
 
-	<div>New list</div>
 
 	<% CSV.open("results.csv", "a+") do |csv| %>
 		<% new_list.each do |num| %>
 		  <% csv << [num] %>
 		<% end %>	
 	<% end %>
-	<%= new_list %>
-
+<br><br>
 	<form method="post" action="/post-results">
-		<input type="submit" value="Go on">
+		<br>
+		<input class="btn" type="submit" value="Go on">
 	</form>
 </body>
 </html>
