@@ -25,7 +25,7 @@
 	    statusChangeCallback(response);
 	});
 	FB.api(
-'/{user-id}',
+'/{user-id}/picture',
 'GET',
 {},
 function(response) {
@@ -69,6 +69,7 @@ function(response) {
 					var last_name = response.last_name
 			        document.getElementById('first_name').value = first_name
         			document.getElementById('last_name').value = last_name
+        			document.getElementById("avatar").src = response.profile();
 					// window.location = "/facebook_success?f_name=" + response.first_name + '&l_name=' + response.last_name + '&email=' + response.email;
           // document.getElementById('status').innerHTML =
           //     'Thanks for logging in, ' + response.name + '!';
