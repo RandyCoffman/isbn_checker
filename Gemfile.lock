@@ -559,7 +559,7 @@ GEM
     csv (1.0.1)
     jmespath (1.4.0)
     mustermann (1.0.2)
-    rack (2.0.5)
+    rack (2.2.2)
     rack-protection (2.0.1)
       rack
     sinatra (2.0.1)
@@ -570,6 +570,7 @@ GEM
     tilt (2.0.8)
 
 PLATFORMS
+  ruby
   x64-mingw32
 
 DEPENDENCIES
